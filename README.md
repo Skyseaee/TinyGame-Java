@@ -16,6 +16,6 @@ This program is a tiny game which can run on a MACBOOK or a Windows computer. Th
 ## Notes
 
 ## Contributors
-[Skyseaee](https://github.com/Skyseaee) [haiyun549](https://github.com/haiyun549) [keira-hq](https://github.com/keira-hq) [callmeahh](https://github.com/callmeahh) [YoungWiz](https://github.com/YoungWiz) [sharonwang](https://github.com/sharonwang)
+[Skyseaee](https://github.com/Skyseaee) [haiyun549](https://github.com/haiyun549) [keira-hq](https://github.com/keira-hq) [callmeahh](https://github.com/callmeahh) [YoungWiz](https://github.com/YoungWiz) [sharonwang1220](https://github.com/sharonwang1220)
 ## License
 [MIT](License) 
