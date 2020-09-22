@@ -5,6 +5,12 @@
 ![codestyle](http://github.zhangqx.com/file-checker/github/Skyseaee/TinyGame-Java?path=CODE_STYLE.md)
 ![pulltemplate](http://github.zhangqx.com/file-checker/github/Skyseaee/TinyGame-Java?path=.github/PULL_REQUEST_TEMPLATE.md)
 
+## Program Data Statistic
+![contributor](http://github.zhangqx.com/data/github/Skyseaee/TinyGame-Java?type=contributor)
+![participant](http://github.zhangqx.com/data/github/Skyseaee/TinyGame-Java?type=participant)
+![follower](http://github.zhangqx.com/data/github/Skyseaee/TinyGame-Java?type=follower)
+![activity](http://github.zhangqx.com/data/github/Skyseaee/TinyGame-Java?type=activity)
+
 This is a tiny game which can be run on a MACBOOK or a Windows computer.
 
 ## Background
