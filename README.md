@@ -27,7 +27,7 @@ Download the file and use the IDEA to open the TinyGame-Java file floder.
 The player can use the mouse to control the bird up and down by clicking the mouse.
 |START|GAMEOVER|
 |:--:|:--:|
-|![Image text](https://github.com/Skyseaee/TinyGame-Java/blob/master/resources/image/start.png)|![Image text](https://github.com/Skyseaee/TinyGame-Java/blob/master/resources/image/gameover.png)|
+|<img src="https://github.com/Skyseaee/TinyGame-Java/blob/master/resources/image/start.png" width = "300"/>|<img src="https://github.com/Skyseaee/TinyGame-Java/blob/master/resources/image/gameover.png" width = "300" />|
 
 
 ## Notes
