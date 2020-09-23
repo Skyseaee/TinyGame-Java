@@ -31,6 +31,8 @@ The player can use the mouse to control the bird up and down by clicking the mou
 
 
 ## Notes
+### Version 1.0
+Implement basic functions. 2020-09-23
 
 ## Contributors
 [Skyseaee](https://github.com/Skyseaee) [haiyun549](https://github.com/haiyun549) [keira-hq](https://github.com/keira-hq) [callmeahh](https://github.com/callmeahh) [YoungWiz](https://github.com/YoungWiz) [sharonwang1220](https://github.com/sharonwang1220)
