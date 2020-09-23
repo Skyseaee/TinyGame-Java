@@ -21,8 +21,13 @@ This simple program is mainly about an attempt to create an open source program 
 This program is a tiny game which can run on a MACBOOK or a Windows computer. The whole program is written by **Java** language.
 
 ## Install
+Download the file and use the IDEA to open the TinyGame-Java file floder. 
 
 ## How to play
+The player can use the mouse to control the bird up and down by clicking the mouse.
+|:--|:--|
+|![Image text](https://github.com/Skyseaee/TinyGame-Java/blob/master/resources/image/start.png)|https://github.com/Skyseaee/TinyGame-Java/blob/master/resources/image/gameover.png|
+
 
 ## Notes
 
