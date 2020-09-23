@@ -24,6 +24,8 @@ public class Column {
 	int h;
 	//柱子间的间距
 	int distance;
+	//安全间隙
+	int gap;
 	//声明一个随机数对象
 	Random ran=new Random();
 	//构造器初始化构造柱子对象（i表示第几根柱子）
@@ -45,6 +47,8 @@ public class Column {
 //		}
 		//设置y坐标（0-n-1的随机整数）位于中心时，y=-308
 		y=-208-ran.nextInt(201);
+		//初始化安全间隙
+		gap=150;
 	}
 	//柱子移动
 	public void move() {

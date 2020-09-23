@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,6 +10,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import javax.tools.Tool;
 
 /**
  * 画板类
@@ -30,6 +32,10 @@ public class GamePanel extends JPanel {
 	Bird bird;
 	//游戏准备状态
 	boolean start;
+	//游戏结束状态
+	boolean gameover;
+	//分数
+	int score;
 	//构造器
 	public GamePanel () {
 		//设置背景色
@@ -48,20 +54,44 @@ public class GamePanel extends JPanel {
 		bird=new Bird();
 		//初始化游戏状态（没有开始为准备状态，若为true则为游戏运行状态）
 		start=false;
+		//初始化游戏结束状态（游戏没有结束，若为true则为游戏运行状态）
+		gameover=false;
+		//初始化分数
+		score=0;
 		//初始化鼠标监听器
 		MouseAdapter adapter=new MouseAdapter() {
 			//鼠标点击后需要做什么就写到下面的方法内部
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-				if(start) {//运行状态
-					//小鸟上抛
-					bird.moveUp();
-				}else {//改变游戏状态为运行状态
+				if(start==false) {//运行状态
+					//改变游戏状态为运行状态
 					start=true;
 					//启动游戏
 					start();
-				}
+				}else if(gameover){
+					//游戏回到准备状态
+					start=false;
+					gameover=false;
+					//重置游戏中的所有对象
+					//初始化地面对象
+					ground = new Ground();
+					//初始化柱子对象
+					column1=new Column(1);//x=300
+					//初始化第二根柱子
+					column2=new Column(2);//x=545
+					//初始化第三根柱子
+					column3=new Column(3);
+					//初始化鸟对象
+					bird=new Bird();
+					//初始化分数
+					score=0;
+					//刷新
+					repaint();
+				}else {
+					//小鸟上抛
+					bird.moveUp();
+									}
 			}
 		};
 		this.addMouseListener(adapter);
@@ -92,6 +122,22 @@ public class GamePanel extends JPanel {
 		g.drawImage(ground.img, ground.x, ground.y, null);
 		//绘制鸟的图片
 		g.drawImage(bird.img, bird.x, bird.y, bird.w, bird.h, null);
+		//绘制准备状态的图片
+		if(start==false) {
+			g.drawImage(Tools.getImg("../img/start.png"),134,43,null);
+		}
+		//绘制游戏结束的图片
+		if(gameover) {
+			g.drawImage(Tools.getImg("../img/gameover.png"),134,63,null);
+		}
+		//创建一个字体对象
+		Font f=new Font("宋体",200,30);
+		//将字体设置到画笔上
+		g.setFont(f);
+		//给画笔设置颜色
+		g.setColor(Color.red);
+		//绘制字符串
+		g.drawString("分数："+score, 30, 50);
 	}
 	
 	//游戏运行的线程
@@ -112,6 +158,25 @@ public class GamePanel extends JPanel {
 				bird.fly();
 				//小鸟做落体运动
 				bird.move();
+				//检测小鸟是否与顶部碰撞
+				boolean boo1=bird.hit();
+				//检测小鸟是否与柱子1 发生了碰撞
+				boolean boo2=bird.hit(column1);
+				//检测小鸟是否与柱子2发生了碰撞
+				boolean boo3=bird.hit(column2);
+				//检测小鸟是否与柱子3发生了碰撞
+				boolean boo4=bird.hit(column3);
+				//若发生碰撞则游戏结束
+				if(boo1||boo2||boo3||boo4) {
+					//更改游戏状态
+					gameover=true;
+					//窗体内的对象全部静止
+					return;//结束当前方法，break结束当前循环
+				}
+				//计算分数
+				if(bird.x==column1.x+column1.w||bird.x==column2.x+column2.w||bird.x==column3.x+column3.w) {
+					score++;
+				}
 				try {
 					//每移动一次休息1s
 					Thread.sleep(30);
