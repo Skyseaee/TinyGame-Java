@@ -15,19 +15,19 @@ public class Column {
 	Random ran = new Random();
 	public Column( int i) {
 		img = Tools.getImg("/image/column.png");
-		w = img.getWidth()/2;
-		h = img.getHeight()/2;
-		distance = 245;
-		x = 300 + 245*(i-1);
-		y = -ran.nextInt(h+146-600);
-		
+		w = img.getWidth();
+		h = img.getHeight();
+		distance = 311;
+		x = 544 + 311*(i-1);
+		y = -208-ran.nextInt(201);
+		gap = 150;
 	}
 	
 	public void move() {
 		x--;
 		if ( x <= -w) {
-			x = 300 + distance;
-			y = -ran.nextInt(h);
+			x = 544 + distance;
+//			y = -ran.nextInt(h);
 		}
 	}
 }

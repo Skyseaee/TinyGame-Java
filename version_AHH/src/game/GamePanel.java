@@ -36,29 +36,21 @@ public class GamePanel extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-//				System.out.println("click");
-//				bird.clickup();
-				if ( start == true) {
-					bird.clickup();
-				}else {
+				if ( start == false ) {
 					start = true;
 					start();
+				}else if( gameover ){
+					start = false;
+					gameover = false;
+					ground = new Ground();
+					column1 = new Column(1);
+					column2 = new Column(2);
+					bird = new Bird();
+					score = 0;
+					repaint();
+				}else {
+					bird.clickup();
 				}
-//				if ( start == false ) {
-//					start = true;
-//					start();
-//				}else if( gameover ){
-//					start = false;
-//					gameover = false;
-//					ground = new Ground();
-//					column1 = new Column(1);
-//					column2 = new Column(2);
-//					bird = new Bird();
-//					score = 0;
-//					repaint();
-//				}else {
-//					bird.clickup();
-//				}
 			}
 		};
 		this.addMouseListener(adapter);
@@ -73,21 +65,21 @@ public class GamePanel extends JPanel{
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		g.drawImage(bg, 0, -150, null);
+		g.drawImage(bg, 0, 0, null);
 		g.drawImage(column1.img, column1.x, column1.y, column1.w, column1.h, null);
 		g.drawImage(column2.img, column2.x, column2.y, column2.w, column2.h, null);
 		g.drawImage(ground.img, ground.x, ground.y, null);
 		g.drawImage(bird.img, bird.x, bird.y, bird.w, bird.h, null);
-		if ( start = false) {
-			g.drawImage(Tools.getImg("/image/start.png"), 0, 0, null);
+		if ( start == false) {
+			g.drawImage(Tools.getImg("/image/start.png"), 134, 43, null);
 		}
 		if ( gameover ) {
-			g.drawImage(Tools.getImg("/image/gameover.png"), 0, 0, null);
+			g.drawImage(Tools.getImg("/image/gameover.png"), 134, 63, null);
 		}
 		Font f = new Font("宋体", Font.BOLD, 30);
 		g.setFont(f);
 		g.setColor(Color.red);
-		g.drawString("分数：" + score, 30, 20);
+		g.drawString("分数：" + score, 30, 50);
 	}
 
 	class MyThread implements Runnable {

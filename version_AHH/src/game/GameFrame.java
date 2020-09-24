@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 public class GameFrame extends JFrame{
 	public GameFrame() {
-		setSize(400,600);
+		setSize(700,730);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Flappy Bird");

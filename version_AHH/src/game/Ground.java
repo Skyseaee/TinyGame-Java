@@ -11,14 +11,14 @@ public class Ground {
 	
 	public Ground() {
 		img = Tools.getImg("/image/ground.png");
-		h = img.getHeight();
+		h = 158;
 		w = img.getWidth();
 		x = 0;
-		y = 420;
+		y = 730 - h;
 	}
 
 	public void move() {
-		if( x<= -(w-400)) {
+		if( x<= -(w-700)) {
 			x = 0;
 		}
 		x --;
