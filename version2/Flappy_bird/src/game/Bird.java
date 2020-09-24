@@ -84,4 +84,26 @@ public class Bird {
 	public void moveUp() {
 		v0=30;
 	}
+	//小鸟与顶部或者地面发生碰撞
+	public boolean hit() {
+		if(y<=0||y>=730-146-h) {
+			return true;
+		}
+		return false;//没撞到
+	}
+	//方法名+参数列表合称为方法的签名
+	//在一个类中不能用完全相同的两个方法
+	//在同一个类中，方法名相同，参数列表不同的两个方法成为重载方法
+	//小鸟和柱子的碰撞
+	public boolean hit(Column column) {
+		if(x>=column.x-w&&x<=column.x+column.w) {
+			if(y>column.h/2+column.y-column.gap/2&&y<column.h/2+column.y+column.gap/2-h) {
+				return false;//安全通过
+			}
+			return true;//撞到了
+		}
+		return false;//没撞到
+	}
+	
+	
 }
