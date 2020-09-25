@@ -42,7 +42,7 @@ public class Bird {
 		v0 = v2;
 	}
 	public void clickup() {
-		v0 = 39;
+		v0 = 33;
 	}
 	
 	public boolean hit() {
