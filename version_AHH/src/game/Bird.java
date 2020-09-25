@@ -17,13 +17,13 @@ public class Bird {
 		img = Tools.getImg("/image/0.png");
 		x = 100;
 		y = 200;
-		w = img.getWidth()/2;
-		h = img.getHeight()/2;
+		w = img.getWidth()*2/3;
+		h = img.getHeight()*2/3;
 		list = new ArrayList<BufferedImage>();
 		for ( int i=0; i<8; i++) {
 			list.add(Tools.getImg("/image/"+i+".png"));
 		}
-		v0 = 30;
+		v0 = 3;
 		t = 0.2;
 		s = 0;
 		g = 10;
@@ -42,11 +42,11 @@ public class Bird {
 		v0 = v2;
 	}
 	public void clickup() {
-		v0 = 30;
+		v0 = 33;
 	}
 	
 	public boolean hit() {
-		if ( y<=0 || y>= 644-146-h ) {
+		if ( y<=0 || y>= 730-146-h ) {
 			return true;
 		}	
 		return false;
@@ -54,7 +54,7 @@ public class Bird {
 	
 	public boolean hit(Column column) {
 		if ( x >= column.x-w && x <= column.x+column.w) {
-			if ( y>column.h/2+y-column.gap/2 && y<column.h/2+y+column.gap/2-h ) {
+			if ( y>column.h/2+column.y-column.gap/2 && y<column.h/2+column.y+column.gap/2-h ) {
 				return false;
 			}
 			return true;
