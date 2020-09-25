@@ -36,9 +36,9 @@ public class Bird {
 		//获取鸟的图片
 		img=Tools.getImg("../img/0.png");
 		//获取鸟的宽度
-		w=img.getWidth()*2/3;
+		w=img.getWidth()*3/4;
 		//获取鸟的高度
-		h=img.getHeight()*2/3;
+		h=img.getHeight()*3/4;
 		//x
 		x=100;
 		//y
@@ -54,7 +54,7 @@ public class Bird {
 		v0=3;
 		//时间
 		t=0.2;
-		//举例
+		//距离
 		s=0;
 		//重力
 		g=10;
