@@ -37,9 +37,9 @@ public class Column {
 		//获取图片的高度
 		h=img.getHeight();
 		//初始化柱子间距
-		distance=311;
+		distance=310;
 		//设置x坐标
-		x=544+311*(i-1);
+		x=544+distance*(i-1);
 //		if(i==1) {
 //			x=300;
 //		}else if(x==2) {
@@ -52,7 +52,7 @@ public class Column {
 	}
 	//柱子移动
 	public void move() {
-		x--;
+		x=x-2;
 		if(x<=-w) {
 			x=544+distance;
 		}
