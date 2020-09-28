@@ -3,6 +3,8 @@ package game;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -33,7 +35,51 @@ public class GamePanel extends JPanel{
 		start = false;
 		gameover = false;
 		score = 0;
+		
+		setFocusable(true);
+		requestFocus();
 
+		KeyListener BirdKeyListener = new KeyListener() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				int keycode = e.getKeyCode();
+				if ( start == false ) {
+					if (keycode == KeyEvent.VK_SPACE) {
+						start = true;
+						start();
+//						System.out.println("按下空格键");
+					}
+				}else if( gameover ){
+					if (keycode == KeyEvent.VK_SPACE) {
+						start = false;
+						gameover = false;
+						ground = new Ground();
+						column1 = new Column(1);
+						column2 = new Column(2);
+						column3 = new Column(3);
+						bird = new Bird();
+						score = 0;
+						repaint();
+//						System.out.println("按下空格键");
+						}
+				}else {
+					if (keycode == KeyEvent.VK_SPACE) {
+						bird.clickup();
+//						System.out.println("按下空格键");
+					}
+				}
+			}
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+			}
+			@Override
+			public void keyReleased(KeyEvent e) {
+				
+			}		
+		};
+			
 		MouseAdapter adapter = new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -57,13 +103,14 @@ public class GamePanel extends JPanel{
 			}
 		};
 		this.addMouseListener(adapter);
+		this.addKeyListener(BirdKeyListener);
+		this.requestFocus();
 	}
 	
 	public void start() {
 		MyThread mt = new MyThread();
 		Thread t = new Thread(mt);
 		t.start();
-
 	}
 	@Override
 	public void paint(Graphics g) {
