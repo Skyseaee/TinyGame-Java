@@ -35,7 +35,7 @@ public class GamePanel extends JPanel {
 	//游戏结束状态
 	boolean gameover;
 	//分数
-	int score;
+	static int score;
 	//构造器
 	public GamePanel () {
 		//设置背景色

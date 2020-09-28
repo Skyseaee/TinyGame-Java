@@ -52,7 +52,14 @@ public class Column {
 	}
 	//Öù×ÓÒÆ¶¯
 	public void move() {
-		x=x-2;
+		if(GamePanel.score<=4)
+		{
+			x=x-1;
+		}
+		else
+		{
+			x=x-2;
+		}
 		if(x<=-w) {
 			x=544+distance;
 		}
